@@ -7,20 +7,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Post {
 
 
-
     private long userId;
     private long id;
     private String title;
     private String body;
 
     @JsonCreator
-    public Post(@JsonProperty("userId")long userId, @JsonProperty("id")long id, @JsonProperty("title")String title, @JsonProperty("body")String body) {
+    public Post(@JsonProperty("userId") long userId, @JsonProperty("id") long id, @JsonProperty("title") String title, @JsonProperty("body") String body) {
         this.userId = userId;
         this.id = id;
         this.title = title;
         this.body = body;
     }
-
 
 
     public long getUserId() {

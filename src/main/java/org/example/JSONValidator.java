@@ -3,10 +3,10 @@ package org.example;
 public class JSONValidator {
 
     public static boolean isThisStringJSON(String jsonString) {
-        try{
+        try {
             //new JSONObject(jsonString);
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
 

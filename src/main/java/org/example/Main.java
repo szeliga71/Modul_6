@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-       JSONPlaceholderFetcher jpF225 = new JSONPlaceholderFetcher();
+        JSONPlaceholderFetcher jpF225 = new JSONPlaceholderFetcher();
         System.out.println(jpF225.getAllPosts());
 
         /*System.out.println(jpF.getSinglePost(1));
@@ -81,20 +81,20 @@ public class Main {
         List<Post> listOfPost;
         listOfPost = jpF1.getAllPostsInList();
 
-        for(Post post:listOfPost){
+        for (Post post : listOfPost) {
 
-            System.out.println("--"+post.getId());
+            System.out.println("--" + post.getId());
         }
 
-        List<Post>listOfPosts2=jpF1.getAllPostsInList();
+        List<Post> listOfPosts2 = jpF1.getAllPostsInList();
 
-        for(Post post:listOfPosts2){
+        for (Post post : listOfPosts2) {
 
-            System.out.println("--"+post.getBody());
+            System.out.println("--" + post.getBody());
         }
 
         System.out.println();
-        Post post=jpF1.getSinglePostReturnPost(2);
+        Post post = jpF1.getSinglePostReturnPost(2);
 
 
         try {
@@ -105,7 +105,7 @@ public class Main {
 
 
         //for(Post pos11 : jpF.getAllPostsInList()){
-          //  System.out.println(pos11.getBody());
+        //  System.out.println(pos11.getBody());
         //}
 
 

@@ -9,10 +9,10 @@ public class JSONMapper {
 
     public <T> T mapTo(String json, Class<T> selectedClass) {
         try {
-          return  mapper.readValue(json,selectedClass);
-        } catch (JsonProcessingException e){//|IllegalArgumentException e) {
+            return mapper.readValue(json, selectedClass);
+        } catch (JsonProcessingException e) {
             throw new IllegalArgumentException(e);
-            //throw new RuntimeException(e);
+
         }
     }
 }

@@ -1,6 +1,5 @@
 import com.google.gson.Gson;
 import org.example.JSONMapper;
-import org.example.JSONMapperGSON;
 import org.example.Post;
 import org.example.User;
 import org.junit.jupiter.api.Assertions;
@@ -30,8 +29,11 @@ public class JSONMapperTest {
     public void mapStringJSONToPostEmptyString() {
 
         String jsonTest = "";
-        Assertions.assertThrows(RuntimeException.class,()->{jsonMapper.mapTo(jsonTest, Post.class);});
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            jsonMapper.mapTo(jsonTest, Post.class);
+        });
     }
+
     @Test
     public void mapStringJSONToPostIllegalStringIllegalArgumentEx() {
 
@@ -40,6 +42,7 @@ public class JSONMapperTest {
             jsonMapper.mapTo(jsonTest, Post.class);
         });
     }
+
     @Test
     public void mapStringJSONToPostNullString() {
 
@@ -49,7 +52,7 @@ public class JSONMapperTest {
         });
     }
 
-        @Test
+    @Test
     public void mapStringJSONToUser() {
 
         String jsonTest = "{\"id\": 35, \"name\": \"Nowak\", \"age\": 36}";

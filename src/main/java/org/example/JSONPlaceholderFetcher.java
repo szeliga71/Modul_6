@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class JSONPlaceholderFetcher {
 
 
@@ -52,7 +51,7 @@ public class JSONPlaceholderFetcher {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.readValue(response.body(),Post.class);                       // mapTo(response.body(), Post.class);
+            return objectMapper.readValue(response.body(), Post.class);                       // mapTo(response.body(), Post.class);
 
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
@@ -95,7 +94,6 @@ public class JSONPlaceholderFetcher {
     }
 
 
-
     public List<Post> getAllPostsInList() {
         try {
             HttpRequest request = HttpRequest.newBuilder(new URI(postsURL)).GET().build();
@@ -103,7 +101,8 @@ public class JSONPlaceholderFetcher {
 
 
             ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.readValue(response.body(), new TypeReference<List<Post>>() {});
+            return objectMapper.readValue(response.body(), new TypeReference<List<Post>>() {
+            });
 
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
@@ -150,11 +149,13 @@ public class JSONPlaceholderFetcher {
         }
 
     }
+
     public String mapToJSONGSON(Post post) {
         ObjectMapper objectMapper = new ObjectMapper();
         Gson gson = new Gson();
         return gson.toJson(post);
     }
+
     public List<Post> getAllPostsInHandMadeUnsafe() {
 
         Gson gson = new Gson();
@@ -165,7 +166,7 @@ public class JSONPlaceholderFetcher {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
 
-            String postsJson= response.body().substring(response.body().indexOf('[') + 1, response.body().indexOf(']') - 1);
+            String postsJson = response.body().substring(response.body().indexOf('[') + 1, response.body().indexOf(']') - 1);
             int firstIndex = postsJson.indexOf('"');
 
             int lastIndex = postsJson.lastIndexOf('}');

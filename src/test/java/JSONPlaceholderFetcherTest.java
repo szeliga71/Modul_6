@@ -22,26 +22,26 @@ public class JSONPlaceholderFetcherTest {
     @Test
     public void getSinglePostReturnStringCheckResult() {
 
-        String postNr1 = "{\n"+
+        String postNr1 = "{\n" +
                 "  \"userId\": 1,\n" +
                 "  \"id\": 1,\n" +
                 "  \"title\": \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\",\n" +
-                "  \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\n"+
+                "  \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\n" +
                 "}";
 
 
-        Assertions.assertEquals(jsonPlaceholderFetcher.getSinglePostReturnString(1),postNr1);
+        Assertions.assertEquals(jsonPlaceholderFetcher.getSinglePostReturnString(1), postNr1);
     }
 
     @Test
-    public void mapToJonsonTest(){
+    public void mapToJonsonTest() {
 
-        Post testPost=new Post(3,115,"Kaczka Dziwaczka","Na brzegu opodal krzaczka mieszkala kaczka dziwaczka,\nlecz zamiast trzymac sie rzeczki robila piesze wycieczki");
-        String testString="{\"userId\":3,\"id\":115,\"title\":\"Kaczka Dziwaczka\",\"body\":\"Na brzegu opodal krzaczka mieszkala kaczka dziwaczka,\\nlecz zamiast trzymac sie rzeczki robila piesze wycieczki\"}";
+        Post testPost = new Post(3, 115, "Kaczka Dziwaczka", "Na brzegu opodal krzaczka mieszkala kaczka dziwaczka,\nlecz zamiast trzymac sie rzeczki robila piesze wycieczki");
+        String testString = "{\"userId\":3,\"id\":115,\"title\":\"Kaczka Dziwaczka\",\"body\":\"Na brzegu opodal krzaczka mieszkala kaczka dziwaczka,\\nlecz zamiast trzymac sie rzeczki robila piesze wycieczki\"}";
 
 
         try {
-            Assertions.assertEquals(testString,jsonPlaceholderFetcher.mapToJSON(testPost));
+            Assertions.assertEquals(testString, jsonPlaceholderFetcher.mapToJSON(testPost));
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
