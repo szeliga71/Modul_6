@@ -17,7 +17,6 @@ import java.util.List;
 public class JSONPlaceholderFetcherGSON {
 
 
-
     private final String postsURL = "https://jsonplaceholder.typicode.com/posts";
 
     private final HttpClient client = HttpClient.newHttpClient();

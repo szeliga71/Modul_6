@@ -10,10 +10,10 @@ public class UserMapper {
 
     public User mapToUserFromJSONStringUserFields(String json) {
 
-        User user=new User();
+        User user = new User();
 
         try {
-            JsonNode node =MAPPER.readTree(json);
+            JsonNode node = MAPPER.readTree(json);
             user.setId(node.get("id").longValue());
             user.setName(node.get("name").textValue());
             user.setAge(node.get("age").intValue());
@@ -21,5 +21,6 @@ public class UserMapper {
             throw new RuntimeException(e);
         }
 
-        return user;}
+        return user;
+    }
 }

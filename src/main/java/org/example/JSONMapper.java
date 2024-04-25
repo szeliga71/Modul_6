@@ -14,6 +14,6 @@ public class JSONMapper {
         } catch (JsonProcessingException e) {
             throw new IllegalArgumentException(e);
 
-}
+        }
     }
 }

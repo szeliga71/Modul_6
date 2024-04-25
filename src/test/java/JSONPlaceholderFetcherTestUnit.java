@@ -32,14 +32,14 @@ public class JSONPlaceholderFetcherTestUnit {
 
         Assertions.assertEquals(jsonPlaceholderFetcher.getSinglePostReturnString(1), postNr1);
     }
+
     @Test
     public void getSinglePostReturnPostCheckResult() {
 
-        Post testPost=new Post(1,1,"sunt aut facere repellat provident occaecati excepturi optio reprehenderit","quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto");
+        Post testPost = new Post(1, 1, "sunt aut facere repellat provident occaecati excepturi optio reprehenderit", "quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto");
 
 
-
-        Assertions.assertEquals(jsonPlaceholderFetcher.getSinglePostReturnPost(1),testPost);
+        Assertions.assertEquals(jsonPlaceholderFetcher.getSinglePostReturnPost(1), testPost);
     }
 
     @Test

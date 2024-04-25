@@ -16,18 +16,17 @@ import static org.mockito.Mockito.when;
 public class JSONPlaceholderFetcherTest {
 
 
-
     @Mock
     private HttpResponse<String> response;
 
 
-    private JSONPlaceholderFetcher jsonPlaceholderFetcher=new JSONPlaceholderFetcher();
+    private JSONPlaceholderFetcher jsonPlaceholderFetcher = new JSONPlaceholderFetcher();
 
 
     private JSONMapper jsonMapper;
 
     @Test
-    public void happyTestPath(){
+    public void happyTestPath() {
         when(response.statusCode()).thenReturn(200);
         when(response.body()).thenReturn("{\n" +
                 "  \"userId\": 1,\n" +
@@ -37,8 +36,7 @@ public class JSONPlaceholderFetcherTest {
                 "}");
 
 
-
-        Post expectedPost=new Post(1,1,"sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        Post expectedPost = new Post(1, 1, "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
                 "quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum " +
                         "rerum est autem sunt rem eveniet architecto");
 
@@ -46,13 +44,10 @@ public class JSONPlaceholderFetcherTest {
         when(jsonPlaceholderFetcher.getSinglePostReturnPost(1)).thenReturn(expectedPost);
 
 
-
-        Assertions.assertEquals(response.body(),jsonPlaceholderFetcher.getSinglePostReturnString(1));
-        Assertions.assertEquals(expectedPost,jsonPlaceholderFetcher.getSinglePostReturnPost(1));
+        Assertions.assertEquals(response.body(), jsonPlaceholderFetcher.getSinglePostReturnString(1));
+        Assertions.assertEquals(expectedPost, jsonPlaceholderFetcher.getSinglePostReturnPost(1));
 
     }
-
-
 
 
 }

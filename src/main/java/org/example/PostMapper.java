@@ -11,10 +11,10 @@ public class PostMapper {
 
     public Post mapToFromJSONStringPostFields(String json) {
 
-        Post post=new Post();
+        Post post = new Post();
 
         try {
-            JsonNode node=MAPPER.readTree(json);
+            JsonNode node = MAPPER.readTree(json);
             post.setId(node.get("id").longValue());
             post.setUserId(node.get("userId").longValue());
             post.setTitle(node.get("title").textValue());
@@ -22,5 +22,6 @@ public class PostMapper {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-        return post;}
+        return post;
+    }
 }
