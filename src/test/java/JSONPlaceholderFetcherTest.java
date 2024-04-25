@@ -7,6 +7,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
@@ -50,4 +53,27 @@ public class JSONPlaceholderFetcherTest {
     }
 
 
+    @Test
+    public void happyTestPath1() {
+
+
+        when(response.body()).thenReturn("{\n" +
+                "  \"userId\": 1,\n" +
+                "  \"id\": 1,\n" +
+                "  \"title\": \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\",\n" +
+                "  \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\n" +
+                "}");
+        //when(jsonPlaceholderFetcher.getSinglePostReturnString(1)).thenReturn(response.body());
+        Assertions.assertEquals(response.body(), jsonPlaceholderFetcher.getSinglePostReturnString(1));
+
+    }
+    @Test
+    public void happyTestPath2() {
+        Post expectedPost = new Post(1, 1, "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                "quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum " +
+                        "rerum est autem sunt rem eveniet architecto");
+
+        when(jsonPlaceholderFetcher.getSinglePostReturnPost(1)).thenReturn(expectedPost);
+        Assertions.assertEquals(expectedPost, jsonPlaceholderFetcher.getSinglePostReturnPost(1));
+    }
 }
