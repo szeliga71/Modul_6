@@ -11,8 +11,13 @@ public class Main {
     public static void main(String[] args) {
 
 
+
+
         JSONPlaceholderFetcher jpF225 = new JSONPlaceholderFetcher();
         System.out.println(jpF225.getAllPosts());
+
+
+
 
         /*System.out.println(jpF.getSinglePost(1));
 

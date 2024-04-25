@@ -20,6 +20,8 @@ public class Post {
         this.body = body;
     }
 
+    public Post() {
+    }
 
     public long getUserId() {
         return userId;
@@ -52,4 +54,7 @@ public class Post {
     public void setBody(String body) {
         this.body = body;
     }
+
+
+
 }
