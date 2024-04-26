@@ -4,6 +4,8 @@ package org.example;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class Post {
 
 
@@ -55,5 +57,37 @@ public class Post {
         this.body = body;
     }
 
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof Post post))
+            return false;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        return getUserId() == post.getUserId() &&
+                getId() == post.getId() &&
+                Objects.equals(getTitle(), post.getTitle()) &&
+                Objects.equals(getBody(), post.getBody());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Long.hashCode(getUserId());
+        result = 31 * result + Long.hashCode(getId());
+        result = 31 * result + Objects.hashCode(getTitle());
+        result = 31 * result + Objects.hashCode(getBody());
+        return result;
+    }
+    @Override
+    public String toString() {
+        return "Post{" +
+                "userId=" + userId +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                '}';
+    }
 
 }
